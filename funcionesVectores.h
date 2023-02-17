@@ -113,6 +113,7 @@ void normaDeUnVector(const float *vector1, const float *vector2, int cantidad) {
     printf("La norma del vector 2 es: %.2f\n", sqrtf(sumaVector2));
 
 }
+
 float normaVectorUnico(const float *vector, int cantidad) {
         float *newVector = (float *)calloc(cantidad, sizeof(float));
         float sumaVector;
@@ -124,8 +125,6 @@ float normaVectorUnico(const float *vector, int cantidad) {
         return sqrtf(sumaVector);
 
 }
-
-
 
 void llenarVectores(float *vector1, float *vector2, int cantidad) {
     char input[10];
