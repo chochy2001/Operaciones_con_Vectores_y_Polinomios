@@ -3,9 +3,9 @@
 #include <errno.h>
 
 int main() {
-    int cantidad, opcion;
+    int cantidad,opcion, escalar;
 
-    printf("Programa que realiza operaciones con vectores\nde cuantas dimensiones es el vector\n");
+    printf("Programa que realiza operaciones con vectores de n dimensiones\nDime que cuantas dimensiones serán los vectores\n");
     char input[10];
     if (fgets(input, 10, stdin) == NULL) {
         printf("Error: No se pudo leer la entrada.\n");
@@ -48,7 +48,7 @@ int main() {
         }
     }
 
-    printf("Que operacion le gustaria realizar con los vectores\n");
+    printf("\nQue operacion le gustaria realizar con los vectores\n");
 
     printf("1) Suma\n2) Resta\n3) Producto por un escalar\n4) Norma\n5) Angulo entre dos vectores\n");
     if (fgets(input, 10, stdin) == NULL) {
@@ -66,6 +66,19 @@ int main() {
 
     switch (opcion) {
         case 1:
+            printf("\nVector 1: ");
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vector1[i]);
+            }
+            printf(")\n");
+
+            printf("Vector 2: ");
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vector2[i]);
+            }
+            printf(")\n");
             printf("Seleccionaste Suma\n");
             for (int i = 0; i < cantidad; ++i) {
                 vectorResultado[i] = vector1[i]+vector2[i];
@@ -73,12 +86,25 @@ int main() {
             printf("El resultado de tu vector es:\n");
             printf("(");
             for (int i = 0; i < cantidad; ++i) {
-                printf("%d ",vectorResultado[i]);
+                printf(" %d, ",vectorResultado[i]);
             }
             printf(")");
 
             break;
         case 2:
+            printf("\nVector 1: ");
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vector1[i]);
+            }
+            printf(")\n");
+
+            printf("Vector 2: ");
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vector2[i]);
+            }
+            printf(")\n");
             printf("Seleccionaste Resta\n");
             for (int i = 0; i < cantidad; ++i) {
                 vectorResultado[i] = vector1[i]-vector2[i];
@@ -92,7 +118,7 @@ int main() {
             for (int i = 0; i < cantidad; ++i) {
                 vectorResultado[i] = vector2[i]-vector1[i];
             }
-            printf("El resultado de restar vector2 menos vector1  es:\n");
+            printf("\nEl resultado de restar vector2 menos vector1  es:\n");
             printf("(");
             for (int i = 0; i < cantidad; ++i) {
                 printf(" %d, ",vectorResultado[i]);
@@ -100,12 +126,76 @@ int main() {
             printf(")");
             break;
         case 3:
+            printf("\nVector 1: ");
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vector1[i]);
+            }
+            printf(")\n");
+
+            printf("Vector 2: ");
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vector2[i]);
+            }
+            printf(")\n");
             printf("Seleccionaste Producto por un Escalar\n");
+            printf("Dame el valor del escalar por el que quieres multiplicar a los vectores\n");
+            if (fgets(input, 10, stdin) == NULL) {
+                printf("Error: No se pudo leer la entrada.\n");
+                exit(1);
+            }
+            escalar = (int)strtol(input,NULL,10);
+            for (int i = 0; i < cantidad; ++i) {
+                vectorResultado[i] = vector1[i]*escalar;
+            }
+            printf("El valor del vector 1 Multiplicado por el escalar es:\n");
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vectorResultado[i]);
+            }
+            printf(")\n");
+            printf("El valor del vector 2 Multiplicado por el escalar es:\n");
+            for (int i = 0; i < cantidad; ++i) {
+                vectorResultado[i] = vector2[i]*escalar;
+            }
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vectorResultado[i]);
+            }
+            printf(")\n");
+
             break;
         case 4:
+            printf("\nVector 1: ");
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vector1[i]);
+            }
+            printf(")\n");
+
+            printf("Vector 2: ");
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vector2[i]);
+            }
+            printf(")\n");
             printf("Seleccionaste Norma\n");
             break;
         case 5:
+            printf("\nVector 1: ");
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vector1[i]);
+            }
+            printf(")\n");
+
+            printf("Vector 2: ");
+            printf("(");
+            for (int i = 0; i < cantidad; ++i) {
+                printf(" %d, ",vector2[i]);
+            }
+            printf(")\n");
             printf("Seleccionaste Angulo entre 2 vectores\n");
             break;
         default:
