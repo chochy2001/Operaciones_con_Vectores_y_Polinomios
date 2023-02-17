@@ -1,13 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
 #include "funcionesVectores.h"
-
 
 int main() {
     int cantidad,opcion,opcionWhile=1;
 
-    printf("Programa que realiza operaciones con vectores de n dimensiones\nDime que cuantas dimensiones serán los vectores\n");
+    printf("Programa que realiza operaciones con vectores de n dimensiones\nDime que cuantas dimensiones ser%cn los vectores\n",160);
     char input[10];
     if (fgets(input, 10, stdin) == NULL) {
         printf("Error: No se pudo leer la entrada.\n");
@@ -22,9 +18,9 @@ int main() {
         exit(1);
     }
 
-    int *vector1 = (int *)calloc(cantidad, sizeof(int));
-    int *vector2 = (int *)calloc(cantidad, sizeof(int));
-    int *vectorResultado = (int *)calloc(cantidad, sizeof(int));
+    float *vector1 = (float *)calloc(cantidad, sizeof(float));
+    float *vector2 = (float *)calloc(cantidad, sizeof(float));
+    float *vectorResultado = (float *)calloc(cantidad, sizeof(float));
 
     llenarVectores(vector1,vector2,cantidad);
 
@@ -40,17 +36,20 @@ int main() {
 
     if(opcion == 0){
         opcionWhile = opcion;
-        opcion = opcionWhile;
     }
+
     if (errno == ERANGE) {
         printf("Error: Número fuera del rango.\n");
         exit(1);
-    } else if (opcion < 1 || opcion > 5) {
-        printf("Saliste del programa");
+    } else if (opcion < 0 || opcion > 5) {
+        printf("Numero fuera de rango\n");
         exit(1);
     }
 
         switch (opcion) {
+            case 0:
+                printf("Gracias por usar el programa\n");
+                break;
             case 1:
                 imprimirVectores(vector1,vector2,cantidad);
                 printf("Seleccionaste Suma\n");
@@ -70,10 +69,12 @@ int main() {
             case 4:
                 imprimirVectores(vector1,vector2,cantidad);
                 printf("Seleccionaste Norma\n");
+                normaDeUnVector(vector1,vector2,cantidad);
                 break;
             case 5:
                 imprimirVectores(vector1,vector2,cantidad);
                 printf("Seleccionaste Angulo entre 2 vectores\n");
+                anguloEntreVectores(vector1,vector2,cantidad);
                 break;
             default:
                 printf("Opcion no disponible\n");
@@ -81,6 +82,10 @@ int main() {
 
         }
     }while(opcionWhile!=0);
+
+    free(vector1);
+    free(vector2);
+    free(vectorResultado);
 
     return 0;
 }
