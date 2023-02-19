@@ -2,7 +2,7 @@
 #include "polinomios.h"
 
 int main() {
-    int opcion;
+    int option;
     char input[10];
     printf("Programa que realiza operaciones con vectores y polinomios\n");
     printf("Selecciona el tipo de operacion que quieres realizar\n");
@@ -11,15 +11,15 @@ int main() {
         printf("Error: No se pudo leer la entrada.\n");
         exit(1);
     }
-    opcion=(int)strtol( input, NULL, 10 );
-    switch (opcion) {
+    option=(int)strtol(input, NULL, 10 );
+    switch (option) {
         case 1:
             printf("*****Seleccionaste Vectores*****\n");
-            vectores();
+            vectors();
             break;
         case 2:
-            printf("*****Seleccionaste polinomios*****\n");
-            polinomios();
+            printf("*****Seleccionaste Polinomios*****\n");
+            polynomials();
             break;
         default:
             printf("Opcion no valida\n");

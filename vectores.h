@@ -7,8 +7,8 @@
 
 #include "funcionesVectores.h"
 
-void vectores() {
-    int cantidad,opcion,opcionWhile=1;
+void vectors() {
+    int quantity,option,optionWhile=1;
 
     printf("Programa que realiza operaciones con vectores de n dimensiones\nDime que cuantas dimensiones ser%cn los vectores\n",160);
     char input[10];
@@ -16,20 +16,20 @@ void vectores() {
         printf("Error: No se pudo leer la entrada.\n");
         exit(1);
     }
-    cantidad = (int)strtol(input, NULL, 10);
+    quantity = (int)strtol(input, NULL, 10);
     if (errno == ERANGE) {
         printf("Error: Número fuera del rango.\n");
         exit(1);
-    } else if (cantidad <= 0) {
+    } else if (quantity <= 0) {
         printf("Error: La cantidad debe ser mayor que cero.\n");
         exit(1);
     }
 
-    float *vector1 = (float *)calloc(cantidad, sizeof(float));
-    float *vector2 = (float *)calloc(cantidad, sizeof(float));
-    float *vectorResultado = (float *)calloc(cantidad, sizeof(float));
+    float *vector1 = (float *)calloc(quantity, sizeof(float));
+    float *vector2 = (float *)calloc(quantity, sizeof(float));
+    float *resultantVector = (float *)calloc(quantity, sizeof(float));
 
-    llenarVectores(vector1,vector2,cantidad);
+    fillVectors(vector1, vector2, quantity);
 
     do {
         printf("\nQue operacion le gustaria realizar con los vectores\n");
@@ -39,60 +39,60 @@ void vectores() {
             printf("Error: No se pudo leer la entrada.\n");
             exit(1);
         }
-        opcion = (int)strtol(input, NULL, 10);
+        option = (int)strtol(input, NULL, 10);
 
-        if(opcion == 0){
-            opcionWhile = opcion;
+        if(option == 0){
+            optionWhile = option;
         }
 
         if (errno == ERANGE) {
             printf("Error: Número fuera del rango.\n");
             exit(1);
-        } else if (opcion < 0 || opcion > 5) {
+        } else if (option < 0 || option > 5) {
             printf("Numero fuera de rango\n");
             exit(1);
         }
 
-        switch (opcion) {
+        switch (option) {
             case 0:
                 printf("Gracias por usar el programa\n");
                 break;
             case 1:
-                imprimirVectores(vector1,vector2,cantidad);
+                printVectors(vector1, vector2, quantity);
                 printf("Seleccionaste Suma\n");
-                sumaVectores(vectorResultado,vector1,vector2,cantidad);
+                sumVectors(resultantVector, vector1, vector2, quantity);
                 break;
             case 2:
-                imprimirVectores(vector1,vector2,cantidad);
+                printVectors(vector1, vector2, quantity);
                 printf("Seleccionaste Resta\n");
-                restaVectores(vectorResultado,vector1,vector2,cantidad);
+                subtractVectors(resultantVector, vector1, vector2, quantity);
                 break;
             case 3:
-                imprimirVectores(vector1,vector2,cantidad);
+                printVectors(vector1, vector2, quantity);
                 printf("Seleccionaste Producto por un Escalar\n");
-                productoPorUnEscalar(vectorResultado,vector1,vector2,cantidad);
+                scalarMultiplication(resultantVector, vector1, vector2, quantity);
 
                 break;
             case 4:
-                imprimirVectores(vector1,vector2,cantidad);
+                printVectors(vector1, vector2, quantity);
                 printf("Seleccionaste Norma\n");
-                normaDeUnVector(vector1,vector2,cantidad);
+                normOfAVector(vector1, vector2, quantity);
                 break;
             case 5:
-                imprimirVectores(vector1,vector2,cantidad);
+                printVectors(vector1, vector2, quantity);
                 printf("Seleccionaste Angulo entre 2 vectores\n");
-                anguloEntreVectores(vector1,vector2,cantidad);
+                angleBetweenVectors(vector1, vector2, quantity);
                 break;
             default:
                 printf("Opcion no disponible\n");
                 break;
 
         }
-    }while(opcionWhile!=0);
+    }while(optionWhile != 0);
 
     free(vector1);
     free(vector2);
-    free(vectorResultado);
+    free(resultantVector);
 
 }
 
