@@ -5,12 +5,14 @@
 #ifndef TAREA_01_IA_VECTORES_H
 #define TAREA_01_IA_VECTORES_H
 
-#include "funcionesVectores.h"
+// Permite utilizar el archivo funcionesVectores.h y las operaciones que ahí se declararon 
+#include "funcionesVectores.h" 
 
+// Función que permite realizar operaciones entre vectores  
 void vectors() {
     int quantity,option,optionWhile=1;
 
-    printf("Programa que realiza operaciones con vectores de n dimensiones\nDime que cuantas dimensiones ser%cn los vectores\n",160);
+    printf("Programa que realiza operaciones con vectores de n dimensiones\nDime que cuantas dimensiones seran los vectores\n",160);
     char input[10];
     if (fgets(input, 10, stdin) == NULL) {
         printf("Error: No se pudo leer la entrada.\n");
@@ -25,13 +27,16 @@ void vectors() {
         exit(1);
     }
 
+    // Vector 1 con el que se operará
     float *vector1 = (float *)calloc(quantity, sizeof(float));
+    // Vector 2 con el que se operará 
     float *vector2 = (float *)calloc(quantity, sizeof(float));
+    // Vector resultante 
     float *resultantVector = (float *)calloc(quantity, sizeof(float));
 
     fillVectors(vector1, vector2, quantity);
 
-    do {
+    do { // Ciclo que le permite al usuario elegir que operación realizar con los vectores 
         printf("\nQue operacion le gustaria realizar con los vectores\n");
 
         printf("0) Salir\n1) Suma\n2) Resta\n3) Producto por un escalar\n4) Norma\n5) Angulo entre dos vectores\n");

@@ -5,13 +5,15 @@
 #ifndef TAREA_01_IA_POLINOMIOS_H
 #define TAREA_01_IA_POLINOMIOS_H
 
+// Permite utilizar el archivo funcionesPolinomios.h y las operaciones que ahí se declararon 
 #include "funcionesPolinomios.h"
 
 void polynomials() {
+    // Variables que se utilizarán
     int degree,option,optionWhile=1;
     float *coefficients1,*coefficients2;
 
-    printf("Programa que realiza operaciones con polinomios de n dimensiones\nDime de que grado ser%c el polinomios\n",160);
+    printf("Programa que realiza operaciones con polinomios de n dimensiones\nDime de que grado sera el polinomios\n", 160);
     char input[10];
     if (fgets(input, 10, stdin) == NULL) {
         printf("Error: No se pudo leer la entrada.\n");
@@ -29,7 +31,7 @@ void polynomials() {
     coefficients2 = (float *)calloc(degree + 1, sizeof(float));
     fillPolynomial(coefficients1, degree);
 
-    do {
+    do { // Ciclo que le permite al usuario elegir que operación realizar con los polinomios
         printf("\nQue operacion le gustaria realizar con el polinomio\n");
 
         printf("0) Salir\n1) Suma\n2) Resta\n3) Valor en Un Punto\n4) Multiplicacion\n5) Derivada\n6) Integral\n");

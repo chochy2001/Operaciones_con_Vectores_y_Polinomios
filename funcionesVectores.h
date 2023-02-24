@@ -5,11 +5,13 @@
 #ifndef TAREA_01_IA_FUNCIONESVECTORES_H
 #define TAREA_01_IA_FUNCIONESVECTORES_H
 
+// Bibliotecas estándar que permiten realizar ciertas operaciones matemáticas
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <errno.h>
 
+// Función que imprime los dos vecores que se ingresaron
 void printVectors(float *vector1, float *vector2, int quantity){
     printf("\nVector 1: ");
     printf("(");
@@ -27,6 +29,8 @@ void printVectors(float *vector1, float *vector2, int quantity){
 
 }
 
+
+// Funcipon que realiza la suma entre dos vectores 
 void sumVectors(float *resultantVector, const float *vector1, const float *vector2, int quantity) {
     for (int i = 0; i < quantity; ++i) {
         resultantVector[i] = vector1[i] + vector2[i];
@@ -39,6 +43,8 @@ void sumVectors(float *resultantVector, const float *vector1, const float *vecto
     printf(")");
 }
 
+
+// Función que realiza la resta entre dos vectores 
 void subtractVectors(float *resultantVector, const float *vector1, const float *vector2, int quantity) {
     for (int i = 0; i < quantity; ++i) {
         resultantVector[i] = vector1[i] - vector2[i];
@@ -60,6 +66,7 @@ void subtractVectors(float *resultantVector, const float *vector1, const float *
     printf(")");
 }
 
+// Función que realiza la multiplicación entre un vector y un escalar 
 void scalarMultiplication(float *resultantVector, const float *vector1, const float *vector2, int quantity) {
     char input[10];
     float scalar;
@@ -89,6 +96,8 @@ void scalarMultiplication(float *resultantVector, const float *vector1, const fl
     printf(")\n");
 }
 
+
+// Función que realiza la suma de todos los componentes de un vector
 float sumVectorComponents(const float *vector1, int quantity){
     float sum = 0;
     for (int i = 0; i < quantity; ++i) {
@@ -97,6 +106,7 @@ float sumVectorComponents(const float *vector1, int quantity){
     return sum;
 }
 
+// Funcipon que calcula la magnitud (norma) de un vector 
 void normOfAVector(const float *vector1, const float *vector2, int quantity) {
     float *newVector1 = (float *)calloc(quantity, sizeof(float));
     float *newVector2 = (float *)calloc(quantity, sizeof(float));
@@ -126,6 +136,7 @@ float normUniqueVector(const float *vector, int quantity) {
 
 }
 
+// Función que le permite ingresar al usuario el valor de los vectores 
 void fillVectors(float *vector1, float *vector2, int quantity) {
     char input[10];
     for (int i = 0; i < quantity; ++i) {
@@ -161,6 +172,7 @@ float dotProduct(const float *vector1, const float *vector2, int quantity) {
     return sum;
 }
 
+// Función que calcula el ángulo que hay entre dos vectores 
 void angleBetweenVectors(float *vector1, float *vector2, int quantity) {
     float sum = dotProduct(vector1, vector2, quantity);
     float norm1 = normUniqueVector(vector1, quantity);
@@ -171,6 +183,5 @@ void angleBetweenVectors(float *vector1, float *vector2, int quantity) {
     printf("El grado entre los vectores es: %.2f radianes\n", result);
     printf("El grado entre los vectores es: %.2f%c\n", resultDegrees, 167);
 }
-
 
 #endif //TAREA_01_IA_FUNCIONESVECTORES_H

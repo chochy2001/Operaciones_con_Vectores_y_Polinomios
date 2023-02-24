@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-
+// Función que que recibe los coeficientes del polinomio y lo imprime
 void printPolynomial(float *coefficients, int degree){
     printf("\nPolinomio: ");
     for (int i = 0; i <= degree; ++i) {
@@ -17,6 +17,7 @@ void printPolynomial(float *coefficients, int degree){
 
 }
 
+// Función que recibe los coeficientes del polinomio
 void fillPolynomial(float *coefficients, int degree){
     for (int i = 0; i <= degree; ++i) {
         printf("\nDame el coeficiente de x^%d: ",i);
@@ -34,6 +35,7 @@ void fillPolynomial(float *coefficients, int degree){
 
 }
 
+// Función que realiza la operación de evaluación en un punto dado
 void evaluateAtAPoint(const float *coefficients, int degree){
     double p = 0.0;
     printf("Dame el valor en donde quieres evaluar al polinomio\n");
@@ -54,6 +56,7 @@ void evaluateAtAPoint(const float *coefficients, int degree){
 
 }
 
+// Funcion que realiza la suma entre dos polinomios
 void sumOfAPolynomial(const float *coefficients1, const float *coefficients2, int degree){
     float *sum = (float *)calloc(degree, sizeof(float));
     for (int i = 0; i <= degree; ++i) {
@@ -62,6 +65,7 @@ void sumOfAPolynomial(const float *coefficients1, const float *coefficients2, in
     printPolynomial(sum, degree);
 }
 
+// Función que realiza la resta entre dos polinomios 
 void subtractionOfAPolynomial(const float *coefficients1, const float *coefficients2, int degree){
     float *subtraction1 = (float *)calloc(degree, sizeof(float));
     float *subtraction2 = (float *)calloc(degree, sizeof(float));
@@ -81,6 +85,8 @@ void subtractionOfAPolynomial(const float *coefficients1, const float *coefficie
 
 }
 
+
+// Función que realiza la multiplicación 
 void multiplicationOfAPolynomial(const float *coefficients1, const float *coefficients2, int degree) {
     float *multiplication = (float *)calloc(degree * 2, sizeof(float));
 
@@ -92,6 +98,8 @@ void multiplicationOfAPolynomial(const float *coefficients1, const float *coeffi
 
     printPolynomial(multiplication, degree * 2);
 }
+
+// Función que calcula la derivada del polinomio 
 void derivativeOfAPolynomial(const float *coefficients, int degree){
     float *derivative = (float *)calloc(degree, sizeof(float));
     for (int i = 0; i <= degree; ++i) {
@@ -103,6 +111,7 @@ void derivativeOfAPolynomial(const float *coefficients, int degree){
 
 }
 
+// Función que calcula la integral del polinomio 
 void integralOfAPolynomial(const float *coefficients, int degree){
     float *integral = (float *)calloc(degree + 2, sizeof(float));
     printf("C");
