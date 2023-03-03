@@ -49,7 +49,10 @@ class Cripto:
         Este metodo pide una cadena codificada para devolver su significado
 
         EJEMPLO:
-        
+            Ingresa: '70648362908094617290729390'
+            Pasamos a lista: ['70', '64'. '83'...]
+                '70' == '70'
+                    resul = LUI...
         '''
         resul=""
         aux1=""
@@ -68,18 +71,28 @@ class Cripto:
                 if codigo[clave] == i:
                     resul=resul+clave
                     break
-    
+            
+        '''
+        Esta parte del codigo verifica la inclusion de la letra J/I,
+        simplimente busca su existencia para mostrar dos posibles resultados
+
+        EJEMPLO:
+            LUISAFERNANDA
+            ['L','U','I','S','A',...]
+            aux3 = LUJSAFERNANDA
+            resul = LUISAFERNANDA
+        '''
         aux3=list(resul)
         z=0
         for z in range(len(aux3)):
-            if aux3[z] == 'I':
+            if aux3[z] == 'I':#Se intercambia la J por la I por otro posble resultado
                 aux3[z] = 'J'
         aux3="".join(aux3)
 
-        if resul == aux3:
-            print("El mensaje es: "+resul)
+        if resul == aux3:#Compramos si hubo o no intercambio
+            print("El mensaje es: "+resul)#Sino hay, pasamos un solo resultado
         else:
-            print("\nEl mensaje puede ser: " + resul + " o " + aux3)
+            print("\nEl mensaje puede ser: " + resul + " o " + aux3)#SI lo hay, psasmos los posibles resultados
 
 
 opcion = 0
