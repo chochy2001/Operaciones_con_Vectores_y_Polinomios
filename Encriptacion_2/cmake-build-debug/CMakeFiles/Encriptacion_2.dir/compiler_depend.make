@@ -173,7 +173,9 @@ CMakeFiles/Encriptacion_2.dir/Tabla.cpp.o: /home/jorge/Documents/Inteligencia_Ar
   /usr/include/c++/8/bits/istream.tcc \
   /usr/include/c++/8/cstring \
   /usr/include/string.h \
-  /usr/include/strings.h
+  /usr/include/strings.h \
+  /usr/include/c++/8/utility \
+  /usr/include/c++/8/bits/stl_relops.h
 
 CMakeFiles/Encriptacion_2.dir/main.cpp.o: /home/jorge/Documents/Inteligencia_Artificial/Tareas_Inteligencia_Artificial/Encriptacion_2/main.cpp \
   /usr/include/stdc-predef.h \
@@ -351,6 +353,10 @@ CMakeFiles/Encriptacion_2.dir/main.cpp.o: /home/jorge/Documents/Inteligencia_Art
 
 
 /home/jorge/Documents/Inteligencia_Artificial/Tareas_Inteligencia_Artificial/Encriptacion_2/main.cpp:
+
+/usr/include/c++/8/bits/stl_relops.h:
+
+/usr/include/c++/8/utility:
 
 /usr/include/string.h:
 

@@ -15,24 +15,35 @@
 
 class Tabla {
 private:
-    int clave;//Es el numero de columnas que se creará la Tabla
+    int clave{};//Es el numero de columnas que se creará la Tabla
     std::string texto;
 public:
-    int getClave() const;
-    void setClave(int clave);
+    [[nodiscard]] int getClave() const;
 
-    [[nodiscard]] const std::string &getTexto() const;
+    [[maybe_unused]] void setClave(int key);
 
-    void setTexto(const std::string &texto);
+    [[nodiscard]] std::basic_string<char> getTexto();
+
+    void setTexto(const std::string &text);
+
+    virtual ~Tabla();
+
+    [[maybe_unused]] Tabla(int clave, std::string texto);
 
     explicit Tabla(int clave);
 
+    [[maybe_unused]] explicit Tabla(std::string texto);
 
+    Tabla();
     //todo quitar espacios y convertir texto a mayuscula
     //todo formar Tabla con el numero de columnas
     //todo hacer metodos encriptar y desencriptar
 
     static std::string mayuscula(std::string texto);
+
+    static std::string quitarEspacios(std::string texto);
+
+    static std::string tratarTexto(std::string texto);
 
 
 

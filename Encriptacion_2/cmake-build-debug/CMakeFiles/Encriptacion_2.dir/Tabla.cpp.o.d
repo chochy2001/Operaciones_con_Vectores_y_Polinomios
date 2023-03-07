@@ -135,4 +135,5 @@ CMakeFiles/Encriptacion_2.dir/Tabla.cpp.o: \
  /usr/include/c++/8/bits/basic_ios.tcc \
  /usr/include/c++/8/bits/ostream.tcc /usr/include/c++/8/istream \
  /usr/include/c++/8/bits/istream.tcc /usr/include/c++/8/cstring \
- /usr/include/string.h /usr/include/strings.h
+ /usr/include/string.h /usr/include/strings.h /usr/include/c++/8/utility \
+ /usr/include/c++/8/bits/stl_relops.h
