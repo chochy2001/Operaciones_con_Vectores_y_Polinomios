@@ -19,33 +19,6 @@ std::string Tabla::mayuscula(std::string texto) {
     return texto;
 }
 
-int Tabla::getClave() const {
-    return clave;
-}
-
-[[maybe_unused]] void Tabla::setClave(int key) {
-    Tabla::clave = key;
-}
-
-
-std::basic_string<char> Tabla::getTexto() {
-    return tratarTexto(texto);
-}
-
-void Tabla::setTexto(const std::string &text) {
-    Tabla::texto = mayuscula(text);
-}
-
-Tabla::~Tabla() = default;
-
-[[maybe_unused]] Tabla::Tabla(int clave, std::string texto) : clave(clave), texto(std::move(texto)) {}
-
-Tabla::Tabla(int clave) : clave(clave) {}
-
-[[maybe_unused]] Tabla::Tabla(std::string texto) : texto(std::move(texto)) {}
-
-Tabla::Tabla() = default;
-
 std::string Tabla::quitarEspacios(std::string texto) {
     for (int i = 0; i < texto.length(); ++i) {
         if (texto[i] == ' '){
@@ -58,4 +31,45 @@ std::string Tabla::quitarEspacios(std::string texto) {
 
 std::string Tabla::tratarTexto(std::string texto) {
     return quitarEspacios(mayuscula(std::move(texto)));
+}
+
+
+void Tabla::imprimirTabla() {
+    for (int i = 0; i < clave; ++i) {
+        for (int j = 0; j < (int)(texto.length()/clave)+1; ++j) {
+            //std::cout<< "[" << i << "+" << j<< "]" << std::endl;
+            std::cout<< "[" << texto[i] << "+" << texto[j]<< "]" << std::endl;
+        }
+    }
+}
+
+Tabla::Tabla() = default;
+
+
+Tabla::Tabla(int clave, const std::string& texto) {
+    this->clave = clave;
+    this->texto = tratarTexto(texto);
+    for (int i = 0; i < clave; ++i) {
+        for (int j = 0; j < texto.length(); ++j) {
+            this->tablaValores[i][j] = '\0';
+        }
+    }
+}
+
+const std::string &Tabla::getTexto() const {
+    return texto;
+}
+
+void Tabla::encriptar() {
+    for (int i = 0; i < this->clave; ++i) {
+        for (int j = 0; j < this->texto.length(); ++j) {
+            tablaValores[i][j] = texto[j];
+        }
+    }
+    for (int i = 0; i < this->clave; ++i) {
+        for (int j = 0; j < this->texto.length(); ++j) {
+            std::cout<< this->tablaValores[i][j] << std::endl;
+        }
+    }
+
 }

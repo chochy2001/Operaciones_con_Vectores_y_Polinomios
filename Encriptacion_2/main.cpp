@@ -17,30 +17,34 @@ int main() {
     std::cout << "Programa que cifra y descifra una frase" << std::endl;
     std::cout << "Ingresa la clave de cifrado (Tiene que ser un numero entero)" << std::endl;
     std::cin>> clave;
-    auto *tabla = new Tabla(clave);
-    std::cout << "La clave ingresada es "<<tabla->getClave() << std::endl;
+    std::cout << "La clave ingresada es "<<clave << std::endl;
+    std::cout<< "Ingresa el texto" << std::endl;
+    std::cin.ignore();
+    std::getline(std::cin,texto);
+    auto *tabla = new Tabla(clave,texto);
+    std::cout<< "texto: " << tabla->getTexto()<< std::endl;
     std::cout << "Que desea hacer\n1) Desencriptar\n2) Encriptar\n3) Salir" << std::endl;
     std::cin>>opcion;
+
 
     switch (opcion) {
         case 1:
             std::cout << "La opcion deseada es Desencriptar" << std::endl;
-            std::cout<< "Ingresa el texto para Desencriptar" << std::endl;
-            std::cin.ignore();
-            std::getline(std::cin,texto);
-            tabla->setTexto(texto);
-            std::cout<< "texto: " << tabla->getTexto()<< std::endl;
+            tabla->imprimirTabla();
             break;
         case 2:
             std::cout << "La opcion deseada es Encriptar" << std::endl;
-            std::cout<< "Ingresa el texto para Encriptar" << std::endl;
-            std::cin.ignore();
-            std::getline(std::cin,texto);
-            tabla->setTexto(texto);
-            std::cout<< "texto: " << tabla->getTexto()<< std::endl;
+            std::cout<< "imprimir tabla" << std::endl;
+            tabla->imprimirTabla();
+
+            std::cout<< "Encriptar" << std::endl;
+            tabla->encriptar();
+            std::cout<< "imprimir tabla" << std::endl;
+            tabla->imprimirTabla();
             break;
         case 3:
             std::cout<< "Gracias por usar el programa" << std::endl;
+            delete tabla;
             opcion=0;
             break;
         default:
