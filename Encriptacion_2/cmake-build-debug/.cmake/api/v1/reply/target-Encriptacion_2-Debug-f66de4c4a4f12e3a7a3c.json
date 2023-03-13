@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Encriptacion_2"
+			"path" : "Encriptacion_2.exe"
+		},
+		{
+			"path" : "Encriptacion_2.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -38,7 +41,7 @@
 					"fragment" : "-g -fdiagnostics-color=always"
 				},
 				{
-					"fragment" : "-std=gnu++2a"
+					"fragment" : "-std=gnu++23"
 				}
 			],
 			"language" : "CXX",
@@ -69,12 +72,16 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "Encriptacion_2",
-	"nameOnDisk" : "Encriptacion_2",
+	"nameOnDisk" : "Encriptacion_2.exe",
 	"paths" : 
 	{
 		"build" : ".",

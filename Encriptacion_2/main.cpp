@@ -11,6 +11,7 @@
 
 int main() {
     int clave,opcion;
+    char caracter;
     std::string texto;
 
     do {
@@ -23,6 +24,14 @@ int main() {
     std::getline(std::cin,texto);
     auto *tabla = new Tabla(clave,texto);
     std::cout<< "texto: " << tabla->getTexto()<< std::endl;
+    std::cout << "Escribe el caracter para encriptar" << std::endl;
+    std::cin>>caracter;
+    tabla->setCaracterEncriptacion(caracter);
+    std::cout << "Caracter encriptacion usado por el usuario" << std::endl;
+    std::cout << tabla->getCaracterEncriptacion() << std::endl;
+
+    
+
     std::cout << "Que desea hacer\n1) Desencriptar\n2) Encriptar\n3) Salir" << std::endl;
     std::cin>>opcion;
 
@@ -33,14 +42,11 @@ int main() {
             tabla->imprimirTabla();
             break;
         case 2:
-            std::cout << "La opcion deseada es Encriptar" << std::endl;
-            std::cout<< "imprimir tabla" << std::endl;
+            std::cout << "La opcion deseada es Encriptar " << std::endl;
             tabla->imprimirTabla();
-
-            std::cout<< "Encriptar" << std::endl;
             tabla->encriptar();
-            std::cout<< "imprimir tabla" << std::endl;
-            tabla->imprimirTabla();
+            tabla->getValorEncriptado();
+
             break;
         case 3:
             std::cout<< "Gracias por usar el programa" << std::endl;

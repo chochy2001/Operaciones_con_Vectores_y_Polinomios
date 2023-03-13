@@ -11,7 +11,6 @@
 #include <iostream>
 #include <cstring>
 #include <string>
-//#include <cctype.h>
 #define MAX_CLAVE 300
 #define MAX_FILA 300
 
@@ -20,10 +19,25 @@ private:
     int clave{};//Es el numero de columnas que se creará la Tabla
     std::string texto;
     std::string valorEncriptado;
-    char tablaValores[MAX_CLAVE][MAX_FILA]{};
+    char caracterEncriptacion;
 public:
+    const std::string &getValorEncriptado() const;
+
+    void setValorEncriptado(const std::string &valorEncriptado);
+
+    char getCaracterEncriptacion() const;
+
+    void setCaracterEncriptacion(char caracterEncriptacion);
+
+    char tablaValores[MAX_FILA][MAX_CLAVE];
+    void setTexto(const std::string &texto);
+
+    int getClave() const;
+
+    void setClave(int clave);
+
     Tabla();
-    Tabla(int clave, const std::string& texto);
+    Tabla(int clave, std::string texto);
     //todo quitar espacios y convertir texto a mayuscula
     //todo formar Tabla con el numero de columnas
     //todo hacer metodos encriptar y desencriptar
@@ -36,7 +50,7 @@ public:
 
     void imprimirTabla();
 
-    [[nodiscard]] const std::string &getTexto() const;
+    [[nodiscard]] const std::string & getTexto() const;
 
     void encriptar();
 

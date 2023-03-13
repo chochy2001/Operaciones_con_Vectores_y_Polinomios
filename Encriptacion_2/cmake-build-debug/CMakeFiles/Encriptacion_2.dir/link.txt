@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/Encriptacion_2.dir/main.cpp.o CMakeFiles/Encriptacion_2.dir/Tabla.cpp.o -o Encriptacion_2 
