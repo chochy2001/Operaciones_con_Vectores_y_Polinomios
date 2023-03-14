@@ -124,15 +124,30 @@ void Tabla::encriptar() {
 }
 
 void Tabla::desencriptar() {
-   int clave_l = this->getClave();
-   std::string texto_l =  this->getTexto(),desencriptado;
+
+    std::string desencriptado[this->getClave()];
+    int partes = (int)this->texto.length()/this->getClave();
+    std::string textoDesencriptado;
 
 
+    for (int i = 0; i < this->getClave(); ++i) {
+        std::string subtexto  = this->texto.substr(i*partes,partes);
+        //std::cout << subtexto << std::endl;
+        desencriptado[i] = subtexto;
 
+    }
+    for (int i = 0; i < this->getClave(); ++i) {
+        for (int j = 0; j < partes; ++j) {
+            //std::cout << "Valor Desencriptado " << desencriptado[i][j] << std::endl;
+            tablaValores[j][i] = desencriptado[i][j];
+        }
+    }
 
+    for (int i = 0; i < (int)(getTexto().length()/getClave()); ++i) {
+        for (int j = 0; j < this->getClave(); ++j) {
+            textoDesencriptado += this->tablaValores[i][j];
+        }
+    }
 
-
-   setValorDesencriptado(desencriptado);
-
-
+   setValorDesencriptado(textoDesencriptado);
 }
