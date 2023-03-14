@@ -43,11 +43,11 @@ void Tabla::imprimirTabla() {
 
 Tabla::Tabla() = default;
 
-Tabla::Tabla(int clave, std::string texto) {
+Tabla::Tabla(int clave, std::string text, char caracter) {
     int r=0;
     setClave(clave);
-    setTexto(tratarTexto(texto));
-    char caracter = getCaracterEncriptacion();
+    setTexto(tratarTexto(std::move(text)));
+    setCaracterEncriptacion(caracter);
 
     //Llenar la tabla con caracter usuario
     for (int i = 0; i < (int)(getTexto().length()/getClave())+1; ++i) {
@@ -58,7 +58,8 @@ Tabla::Tabla(int clave, std::string texto) {
 
     for (int i = 0; i < (int)(getTexto().length()/getClave())+1; ++i) {
         for (int j = 0; j < getClave(); ++j) {
-            char c = 'S';
+            //std::cout<< "Caracter encriptacion: " << getCaracterEncriptacion() << std::endl;
+            char c = this->getCaracterEncriptacion();
             if (r < getTexto().length()) {
                 c = getTexto()[r];
                 if (c == '.') {
@@ -75,6 +76,43 @@ const std::string &Tabla::getTexto() const {
     return texto;
 }
 
+
+void Tabla::setTexto(const std::string &text) {
+    Tabla::texto = text;
+}
+
+int Tabla::getClave() const {
+    return clave;
+}
+
+void Tabla::setClave(int clave_l) {
+    Tabla::clave = clave_l;
+}
+
+char Tabla::getCaracterEncriptacion() const {
+    return caracterEncriptacion;
+}
+
+void Tabla::setCaracterEncriptacion(char caracterEncriptacion_l) {
+    Tabla::caracterEncriptacion = caracterEncriptacion_l;
+}
+
+std::string Tabla::getValorEncriptado() const {
+    return valorEncriptado;
+}
+
+void Tabla::setValorEncriptado(const std::string &valorEncriptado_l) {
+    Tabla::valorEncriptado = valorEncriptado_l;
+}
+
+std::string Tabla::getValorDesencriptado() const {
+    return valorDesencriptado;
+}
+
+void Tabla::setValorDesencriptado(const std::string &valorDesencriptado_l) {
+    Tabla::valorDesencriptado = valorDesencriptado_l;
+}
+
 void Tabla::encriptar() {
     std::string encriptado;
     for (int i = 0; i < getClave(); ++i) {
@@ -83,34 +121,18 @@ void Tabla::encriptar() {
         }
     }
     setValorEncriptado(encriptado);
-
-
 }
 
-void Tabla::setTexto(const std::string &texto) {
-    Tabla::texto = texto;
-}
+void Tabla::desencriptar() {
+   int clave_l = this->getClave();
+   std::string texto_l =  this->getTexto(),desencriptado;
 
-int Tabla::getClave() const {
-    return clave;
-}
 
-void Tabla::setClave(int clave) {
-    Tabla::clave = clave;
-}
 
-char Tabla::getCaracterEncriptacion() const {
-    return caracterEncriptacion;
-}
 
-void Tabla::setCaracterEncriptacion(char caracterEncriptacion) {
-    Tabla::caracterEncriptacion = caracterEncriptacion;
-}
 
-const std::string &Tabla::getValorEncriptado() const {
-    return valorEncriptado;
-}
 
-void Tabla::setValorEncriptado(const std::string &valorEncriptado) {
-    Tabla::valorEncriptado = valorEncriptado;
+   setValorDesencriptado(desencriptado);
+
+
 }

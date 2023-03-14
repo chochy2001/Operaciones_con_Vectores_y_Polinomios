@@ -16,28 +16,34 @@
 
 class Tabla {
 private:
+
     int clave{};//Es el numero de columnas que se creará la Tabla
     std::string texto;
     std::string valorEncriptado;
-    char caracterEncriptacion;
+    std::string valorDesencriptado;
+    char caracterEncriptacion{};
 public:
-    const std::string &getValorEncriptado() const;
+    std::string getValorEncriptado() const;
 
-    void setValorEncriptado(const std::string &valorEncriptado);
+    std::string getValorDesencriptado() const;
+
+    void setValorDesencriptado(const std::string &valorDesencriptado_l);
+
+    void setValorEncriptado(const std::string &valorEncriptado_l);
 
     char getCaracterEncriptacion() const;
 
-    void setCaracterEncriptacion(char caracterEncriptacion);
+    void setCaracterEncriptacion(char caracterEncriptacion_l);
 
-    char tablaValores[MAX_FILA][MAX_CLAVE];
-    void setTexto(const std::string &texto);
+    char tablaValores[MAX_FILA][MAX_CLAVE]{};
+    void setTexto(const std::string &text);
 
     int getClave() const;
 
-    void setClave(int clave);
+    void setClave(int clave_l);
 
     Tabla();
-    Tabla(int clave, std::string texto);
+    Tabla(int clave, std::string text, char caracter);
     //todo quitar espacios y convertir texto a mayuscula
     //todo formar Tabla con el numero de columnas
     //todo hacer metodos encriptar y desencriptar
@@ -50,9 +56,11 @@ public:
 
     void imprimirTabla();
 
-    [[nodiscard]] const std::string & getTexto() const;
+    const std::string & getTexto() const;
 
     void encriptar();
+
+    void desencriptar();
 
 };
 
