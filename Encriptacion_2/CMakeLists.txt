@@ -3,4 +3,4 @@ project(Encriptacion_2)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(Encriptacion_2 main.cpp Tabla.cpp Tabla.hpp)
+add_executable(Encriptacion_2 main.cpp Table.cpp Table.hpp)

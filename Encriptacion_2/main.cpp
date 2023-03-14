@@ -7,55 +7,53 @@
 //
 
 #include <iostream>
-#include "Tabla.hpp"
+#include "Table.hpp"
 
 int main() {
-    int clave,opcion;
-    char caracter;
-    std::string texto;
+    int key,option;
+    char character;
+    std::string text_g;
 
     do {
     std::cout << "Programa que cifra y descifra una frase" << std::endl;
     std::cout << "Ingresa la clave de cifrado (Tiene que ser un numero entero)" << std::endl;
-    std::cin>> clave;
-    std::cout << "La clave ingresada es "<<clave << std::endl;
+    std::cin >> key;
+    std::cout << "La clave ingresada es " << key << std::endl;
     std::cout<< "Ingresa el texto" << std::endl;
     std::cin.ignore();
-    std::getline(std::cin,texto);
+    std::getline(std::cin, text_g);
     std::cout << "Escribe el caracter para encriptar" << std::endl;
-    std::cin>>caracter;
-    auto *tabla = new Tabla(clave,texto,toupper(caracter));
+    std::cin >> character;
+    auto *table = new Table(key, text_g, toupper(character));
     std::cout << "Caracter encriptacion usado por el usuario" << std::endl;
-    std::cout << tabla->getCaracterEncriptacion() << std::endl;
+    std::cout << table->getEncryptedCharacter() << std::endl;
 
 
     std::cout << "Que desea hacer\n1) Desencriptar\n2) Encriptar\n3) Salir" << std::endl;
-    std::cin>>opcion;
+    std::cin >> option;
 
-    switch (opcion) {
+    switch (option) {
         case 1:
             std::cout << "La opcion deseada es Desencriptar" << std::endl;
-            tabla->imprimirTabla();
-            tabla->desencriptar();
-            std::cout<< tabla->getValorDesencriptado() << std::endl;
+            table->decrypt();
+            std::cout << table->getDecryptedValue() << std::endl;
             break;
         case 2:
             std::cout << "La opcion deseada es Encriptar " << std::endl;
-            tabla->imprimirTabla();
-            tabla->encriptar();
+            table->encrypt();
             std::cout<< "El valor encriptado es el siguiente" << std::endl;
-            std::cout<< tabla->getValorEncriptado() << std::endl;
+            std::cout << table->getEncryptedValue() << std::endl;
 
             break;
         case 3:
             std::cout<< "Gracias por usar el programa" << std::endl;
-            delete tabla;
-            opcion=0;
+            delete table;
+            option=0;
             break;
         default:
             std::cout << "Opcion no valida" << std::endl;
             break;
     }
-    }while (opcion!= 0);
+    }while (option != 0);
     return 0;
 }
