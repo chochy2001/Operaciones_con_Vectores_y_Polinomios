@@ -38,14 +38,19 @@ def evalua(fp, epa):
 
     return eval_expresion(data)
 
-#Ciclo for en el que se evalua una expresión lógica
+# Ciclo for en el que se evalua una expresión lógica
 for p in {True,False}:
     for q in {True,False}:
         for r in {True,False}:
-            #Expresión lógica a evaluar 
-            print(evalua('( ( p => q ) => ( ( p | r ) => ( q | r ) ) )',{'p': p, 'q': q, 'r': r}) == False)
-
-
+            # Expresión lógica a evaluar 
+            #print(evalua('( ( p => q ) => ( ( p | r ) => ( q | r ) ) )',{'p': p, 'q': q, 'r': r}) == False)
+            
+            # Segunda expresión lógica a evaluar
+            #print(evalua('( p & ( q => r ) )',{'p': p, 'q': q, 'r': r}) == (p and (not q or r)))
+            
+            # Tercera expresión lógica a evaluar
+            print(evalua('( ( p & q ) => ( r | ! r ) )',{'p': p, 'q': q, 'r': r}) == True)
+           
 #Pruebas que permiten evaluar distintas expresiones lógicas proposicionales.
 print("***********TDD******************")
 print(evalua('( p | q )',{'p':False,'q':True}) == True)

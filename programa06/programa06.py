@@ -17,7 +17,7 @@ def evalua(fp, epa):
     data = fp.split()
 
     #Diccionarios de operadores binarios y unarios
-    dic_o_bin = {'|':' or ', '&':' and ', '=>': ' '}
+    dic_o_bin = {'|':' or ', '&':' and ', '=>':' '}
     dic_o_una = {'!':' not '}
 
     #Pilas de operadores y valores
