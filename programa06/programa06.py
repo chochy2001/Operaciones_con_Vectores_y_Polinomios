@@ -52,7 +52,7 @@ for p in {True,False}:
             print(tdd(evalua,'( ( p => q ) => ( ( p | r ) => ( q | r ) ) )',{'p': p, 'q': q, 'r': r},[False]))
 
 
-#Pruebas que permiten evaluar distintas expresiones lógicas proposicionales 
+#Pruebas que permiten evaluar distintas expresiones lógicas proposicionales.
 print("***********TDD******************")
 print(tdd(evalua,'( p | q )',{'p':False,'q':True},[True]))
 print(tdd(evalua,'( p & q )',{'p':False,'q':True},[False]))
