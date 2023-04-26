@@ -1,6 +1,16 @@
+#Evaluación de expresiones lógicas proposicionales
+#Recursividad
+#Integrantes:
+#Cortés Alvarado Iván Daniel
+#Rodríguez Larios Alejandro
+#Salgado Miranda Jorge
+
+"""Función evalua: tiene como parámetro una expresión lógica y un diccionario.
+   Esta función permite llevar a cabo la evaluación de la expresión lógica y 
+   devolver un resultado."""
 def evalua(fp, epa):
-    epa['T'] = True  #Clave 1 del diccionario
-    epa['F'] = False #Clave 2 del diccionario 
+    epa['T'] = True  #Claves del diccionario
+    epa['F'] = False 
     
     #Diccionarios de operadores binarios y unarios
     dic_o_bin = {'|':' or ', '&':' and ', '=>': ' '}
@@ -9,6 +19,7 @@ def evalua(fp, epa):
     #Método que permite separar la expresión lógica
     data = fp.split()
     
+    #Implementación de la recursividad 
     def eval_expresion(data):
         #Pilas de operadores y valores
         ops, val = [], []
@@ -42,17 +53,18 @@ def evalua(fp, epa):
 for p in {True,False}:
     for q in {True,False}:
         for r in {True,False}:
-            # Expresión lógica a evaluar 
-            #print(evalua('( ( p => q ) => ( ( p | r ) => ( q | r ) ) )',{'p': p, 'q': q, 'r': r}) == False)
+            #Expresión lógica a evaluar 
+            #(evalua('( ( p => q ) => ( ( p | r ) => ( q | r ) ) )',{'p': p, 'q': q, 'r': r}) == False)
             
-            # Segunda expresión lógica a evaluar
+            #Segunda expresión lógica a evaluar
             #print(evalua('( p & ( q => r ) )',{'p': p, 'q': q, 'r': r}) == (p and (not q or r)))
             
-            # Tercera expresión lógica a evaluar
+            #Tercera expresión lógica a evaluar
             print(evalua('( ( p & q ) => ( r | ! r ) )',{'p': p, 'q': q, 'r': r}) == True)
            
 #Pruebas que permiten evaluar distintas expresiones lógicas proposicionales.
-print("***********TDD******************")
+print('')
+print("**********TDD**********")
 print(evalua('( p | q )',{'p':False,'q':True}) == True)
 print(evalua('( p & q )',{'p':False,'q':True}) == False)
 print(evalua('( ! p )',{'p':False,'q':True}) == True)
