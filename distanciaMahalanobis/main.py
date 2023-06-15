@@ -13,21 +13,34 @@
 import numpy as np
 from scipy.stats import multivariate_normal
 
+
 # Función para calcular la media de un conjunto de muestras
 def compute_mean_manual(W):
     W_array = np.array(W)  # Convertir lista de tuplas en array numpy
-    return np.mean(W_array, axis=0)  # Calcular la media
+    W_array = np.mean(W_array, axis=0)  # Es axis = 0 por que si es diferente a 0 como 1,
+    # entonces saca el promedio de cada tupla
+    return W_array  # Calcular la media
+
 
 # Función para calcular la matriz de covarianza de un conjunto de muestras
-def compute_covariance_manual(W):
-    W_array = np.array(W)  # Convertir lista de tuplas en array numpy
-    n_samples = W_array.shape[0]  # Número de muestras
-    mean = np.mean(W_array, axis=0)  # Media de las muestras
-    W_array = W_array - mean  # Restar la media a las muestras
-    covariance_matrix = W_array.T @ W_array / (n_samples - 1)  # Calcular matriz de covarianza
-    regularization_value = 1e-6  # Valor de regularización
-    return covariance_matrix + np.eye(
-        W_array.shape[1]) * regularization_value  # Añadir valor de regularización a la diagonal
+def compute_covariance_manual(samples):
+    # Convertir lista de tuplas en array numpy
+    samples_array = np.array(samples)
+    # Calcular la media de cada característica
+    samples_mean = samples_array.mean(axis=0)
+    # Centrar las muestras restando la media
+    centered_samples = samples_array - samples_mean
+    # Calcular la matriz de covarianza
+    covariance_matrix = np.matmul(centered_samples.T,
+                                  centered_samples)  # así se saca el cuadrado de los componentes de la matriz
+    covariance_matrix /= len(
+        samples) - 1  # como empieza de cero por eso se resta 1 y así se saca el promedio para la covarianza
+    # (entre el numero de elementos de la muestra). (parte roja en el documento)
+
+    # Añadir un pequeño valor a la diagonal para estabilizar los cálculos
+    regularization_value = 1e-6  # se usa para asegurar que la matriz es invertible (tiene inverso)
+    stabilized_covariance = covariance_matrix + np.eye(samples_array.shape[1]) * regularization_value
+    return stabilized_covariance
 
 
 # Función para calcular la probabilidad a priori de una clase
