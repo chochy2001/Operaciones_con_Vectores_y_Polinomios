@@ -1,13 +1,5 @@
 # ninja log v5
-2	301	7004621469607405	CMakeFiles/Encriptacion_2.dir/main.cpp.obj	684dda2d64f50a6f
-302	418	7004621470692493	Encriptacion_2.exe	a3c8ac68dc0e9aea
-2	334	7004620113406182	CMakeFiles/Encriptacion_2.dir/Tabla.cpp.obj	85a05f2f2067e577
-2	217	7004627345150129	build.ninja	db32f58c26b4be6e
-7	317	7004627349261081	CMakeFiles/Encriptacion_2.dir/main.cpp.obj	684dda2d64f50a6f
-1	340	7004627349501078	CMakeFiles/Encriptacion_2.dir/Table.cpp.obj	fbcb2ce4bb29d5e9
-341	441	7004627350426185	Encriptacion_2.exe	2b005b88accabc7a
-2	303	7004628134855710	CMakeFiles/Encriptacion_2.dir/main.cpp.obj	684dda2d64f50a6f
-304	399	7004628135736072	Encriptacion_2.exe	2b005b88accabc7a
-2	315	7004630778983709	CMakeFiles/Encriptacion_2.dir/main.cpp.obj	684dda2d64f50a6f
-8	348	7004630779253715	CMakeFiles/Encriptacion_2.dir/Table.cpp.obj	fbcb2ce4bb29d5e9
-348	445	7004630780208796	Encriptacion_2.exe	2b005b88accabc7a
+2	321	7004657595263336	CMakeFiles/Encriptacion_2.dir/main.cpp.obj	684dda2d64f50a6f
+349	451	7004657596445461	Encriptacion_2.exe	2b005b88accabc7a
+2	217	7071124577723627	build.ninja	db32f58c26b4be6e
+8	349	7004657595523336	CMakeFiles/Encriptacion_2.dir/Table.cpp.obj	fbcb2ce4bb29d5e9
